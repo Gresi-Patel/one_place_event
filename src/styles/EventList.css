@@ -1,0 +1,16 @@
+.event-list-wrapper {
+    min-height: 100vh;
+    /* background: linear-gradient(135deg, #b5c6e6, #bfd1f7); */
+    color: white;
+  }
+  
+  .event-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  

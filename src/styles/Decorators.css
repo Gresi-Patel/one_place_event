@@ -1,0 +1,72 @@
+.decorators .nav-link {
+    color: rgba(119, 170, 225, 1);
+    font-size: 20px;
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .decorators .navbar-nav{
+    --bs-nav-link-hover-color: rgba(119, 170, 225, 1);
+  }
+  .decorators .navbar-nav .nav-link.active {
+    border-bottom: 5px solid rgba(119, 170, 225, 1);
+  }
+  
+  .decorators .navbar-nav .nav-link:hover {
+    color: rgba(119, 170, 225, 1);
+  }
+.decoratorTitle{
+    text-align: center;
+    font-family: "Life Savers", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    color: rgba(119, 170, 225, 1);
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+    gap: 30px;
+}
+.searchbar{
+    padding:10px 50px;
+    display: flex;
+    justify-content: center;
+}
+.searchbtn{
+    border-left: 0;
+    border: 1px solid rgba(119, 170, 225, 1);
+    border-radius: 0;
+    background-color: white;
+}
+.searchinput{
+    border: 1px solid rgba(119, 170, 225, 1);
+    border-radius: 0%;
+}
+.decoratorCards{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+.decoratorCards .card {
+    border: 1px solid rgba(150, 197, 246, 1);
+    border-radius: 0%;
+  }
+.decoratorCards .card-title {
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(150, 197, 246, 1);
+    font-size: 20px;
+    margin-bottom: 12px;
+}  
+.decoratorCards .card-text {
+    font-family: "Krub", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(150, 197, 246, 1);
+    font-size: 16px;
+    line-height: 16px;
+}

@@ -1,0 +1,371 @@
+/* style.css */
+.landingpage .navbar{
+  --bs-navbar-active-color: rgba(rgba(119, 170, 225, 1));
+}
+.landingpage .navbar-brand {
+  color: white;
+  font-family: "Life Savers", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
+.landingpage .nav-link {
+  color: white;
+  font-size: 20px;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.landingpage .navbar-nav{
+  --bs-nav-link-hover-color: rgba(119, 170, 225, 1);
+}
+.landingpage .navbar-nav .nav-link.active {
+  border-bottom: 5px solid rgba(119, 170, 225, 1);
+  color: white;
+}
+
+.landingpage .navbar-nav .nav-link:hover {
+  color: rgba(119, 170, 225, 1);
+}
+
+.bgimg {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.herosection-content-wrapper {
+  color: white;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 32px;
+  max-width: 800px;
+}
+
+.herosection-content-wrapper h6 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.herosection-content-wrapper p {
+  font-size: 24px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.herosection-content-wrapper button{
+  color:rgba(119, 170, 225, 1) ;
+  border-radius: 0%;
+}
+.section2heading{
+  color: rgba(119, 170, 225, 1);
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.section2desc p {
+  font-size: 18px;
+  color: rgba(119, 170, 225, 1);
+  font-family: "Krub", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.section3border {
+  padding: 32px;
+  border: 2px solid white;
+}
+
+.section3 h1 {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.section3 p {
+  font-size: 18px;
+  font-family: "Krub", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  line-height: 1.7;
+  color: white;
+}
+
+.section4heading h1 {
+  color: rgba(150, 197, 246, 1);
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+.section4 .card {
+  border: 2px solid rgba(150, 197, 246, 1);
+  border-radius: 0%;
+  text-align: center;
+}
+.section4 .card-title {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(150, 197, 246, 1);
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.section4 .card-text {
+  font-family: "Krub", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgba(150, 197, 246, 1);
+  font-size: 16px;
+}
+
+.section5border {
+  border: 2px solid white;
+}
+
+.section5box {
+  background-color: white;
+  color: rgba(150, 197, 246, 1);
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  padding: 0;
+}
+.section5content {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section5content h1 {
+  font-family: "Life Savers", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.section5content p {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.section5btn {
+  background-color: rgba(150, 197, 246, 1);
+  color: white;
+  font-size: 20px;
+  border: 0;
+  padding: 12px 24px;
+  border-radius: 0%;
+  margin-bottom: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.section5btn:hover {
+  background-color: rgba(119, 170, 225, 0.8);
+}
+
+.section6 {
+  color: rgba(150, 197, 246, 1);
+  text-align: center;
+}
+
+.section6 h1{
+  font-family: "Life Savers", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: rgba(150, 197, 246, 1);
+}
+
+.section6 p {
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: rgba(150, 197, 246, 1);
+}
+
+.section6 .d-flex a {
+  display: inline-block;
+}
+
+.section6icons {
+  height: 30px;
+  margin: 0 5px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.section6icons:hover {
+  opacity: 1;
+}
+
+@media (max-width: 767.98px) {
+  .navbar-brand {
+    font-size: 32px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .herosection-content-wrapper h6 {
+    font-size: 32px;
+  }
+
+  .herosection-content-wrapper p {
+    font-size: 18px;
+  }
+
+  .section2heading h1 {
+    font-size: 28px;
+  }
+
+  .section2content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section2content > div {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .section3 h1 {
+    font-size: 24px;
+  }
+
+  .section3 p {
+    font-size: 16px;
+  }
+
+  .section4heading h1 {
+    font-size: 28px;
+  }
+  .section5box{
+    flex-flow: row wrap;
+  }
+  .section5content h1 {
+    font-size: 32px;
+  }
+
+  .section5content p {
+    font-size: 18px;
+  }
+  .section6 {
+    text-align: center;
+  }
+
+  .section6 .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section6 p {
+    margin-bottom: 16px;
+  }
+
+  .section6icons {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1px;
+  }
+}
+
+/* Medium screens (768px to 991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-brand {
+    font-size: 36px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .herosection-content-wrapper h6 {
+    font-size: 36px;
+  }
+
+  .herosection-content-wrapper p {
+    font-size: 20px;
+  }
+
+  .section2heading h1 {
+    font-size: 32px;
+  }
+
+  .section5box img {
+    max-width: 64px;
+  }
+}
+
+/* Large screens (992px and up) */
+@media (min-width: 992px) {
+  .navbar-brand {
+    font-size: 40px;
+  }
+
+  .nav-link {
+    font-size: 20px;
+  }
+
+  .herosection-content-wrapper h6 {
+    font-size: 40px;
+  }
+
+  .herosection-content-wrapper p {
+    font-size: 24px;
+  }
+
+  .section2heading h1 {
+    font-size: 36px;
+  }
+  .section5box img {
+    max-width: 80px;
+  }
+}
+@media screen and (max-width:425px) {
+  .section3border{
+    margin:2px;
+  }
+  .section6icongrup {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1px;
+  }
+
+}
