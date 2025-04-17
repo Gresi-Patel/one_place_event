@@ -10,7 +10,7 @@ const ForgotPassword = () => {
     const handleSendOtp = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(' https://backend-999h.onrender.com/otp-api/send-otp', {
+            const res = await fetch(' http://localhost:5000/otp-api/send-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email }),

@@ -6,10 +6,10 @@ const AddService = () => {
   const [serviceDescription, setServiceDescription] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [servicePrice, setServicePrice] = useState("");
+  const [loading, setLoading] = useState(false); // NEW state for loading
 
-  // Fetch categories on mount
   useEffect(() => {
-    fetch(" https://backend-999h.onrender.com/service/") //servicecategory
+    fetch("http://localhost:5000/service/")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);
@@ -20,44 +20,52 @@ const AddService = () => {
     if (!serviceName || !serviceDescription || !selectedCategory || !servicePrice) {
       return alert("Please fill in all fields!");
     }
-  
+
     let userId = localStorage.getItem("userId");
     if (!userId) {
       alert("User ID not found. Please log in again.");
       return;
     }
-  
-    // Step 1: Create category (or check if exists - optional)
-    const categoryRes = await fetch(" https://backend-999h.onrender.com/service-category/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: selectedCategory }),
-    });
-  
-    const categoryData = await categoryRes.json();
-    const categoryId = categoryData.id;
-  
-    // Step 2: Create the service
-    const response = await fetch(" https://backend-999h.onrender.com/service/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        providerId: userId,
-        name: serviceName,
-        description: serviceDescription,
-        categoryId: categoryId,
-        price: parseFloat(servicePrice),
-      }),
-    });
-  
-    if (response.ok) {
-      alert("Service added successfully!");
-      window.location.href = "/service-provider-panel/service-list";
-    } else {
-      alert("Failed to add service.");
+
+    setLoading(true); // Start loading
+
+    try {
+      // Step 1: Create category
+      const categoryRes = await fetch("http://localhost:5000/service-category/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: selectedCategory }),
+      });
+
+      const categoryData = await categoryRes.json();
+      const categoryId = categoryData.id;
+
+      // Step 2: Create the service
+      const response = await fetch("http://localhost:5000/service/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          providerId: userId,
+          name: serviceName,
+          description: serviceDescription,
+          categoryId: categoryId,
+          price: parseFloat(servicePrice),
+        }),
+      });
+
+      if (response.ok) {
+        alert("Service added successfully!");
+        window.location.href = "/service-provider-panel/service-list";
+      } else {
+        alert("Failed to add service.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong.");
+    } finally {
+      setLoading(false); // Stop loading (in case of failure)
     }
   };
-  
 
   return (
     <div className="container mt-4">
@@ -82,21 +90,6 @@ const AddService = () => {
         />
       </div>
 
-      {/* <div className="mb-3">
-        <select
-          className="form-control"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="">Select Category</option>
-          {categories.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-              {cat.category.name}
-            </option>
-          ))}
-        </select>
-      </div> */}
-
       <div className="mb-3">
         <input
           type="text"
@@ -117,8 +110,12 @@ const AddService = () => {
         />
       </div>
 
-      <button className="btn btn-primary" onClick={handleAddService}>
-        Add Service
+      <button
+        className="btn btn-primary"
+        onClick={handleAddService}
+        disabled={loading} // disable button while loading
+      >
+        {loading ? "Loading..." : "Add Service"}
       </button>
     </div>
   );

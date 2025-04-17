@@ -18,9 +18,9 @@ const Booking = () => {
                 const managerId = localStorage.getItem("userId");
 
                 const userType = localStorage.getItem("role");
-                const response = await fetch(`https://backend-999h.onrender.com/bookings?userId=${managerId}&userType=${userType}&status=completed,rejected,accepted,confirmed`);
+                const response = await fetch(`http://localhost:5000/bookings?userId=${managerId}&userType=${userType}&status=completed,rejected,accepted,confirmed`);
 
-                // const response = await fetch(" https://backend-999h.onrender.com/bookings/");
+                // const response = await fetch(" http://localhost:5000/bookings/");
                 if (!response.ok) throw new Error("Failed to fetch orders");
 
                 const data = await response.json();
@@ -38,7 +38,7 @@ const Booking = () => {
 
     const handleStatusChange = async (id, newStatus) => {
         try {
-            const response = await fetch(`https://backend-999h.onrender.com/bookings/${id}`, {
+            const response = await fetch(`http://localhost:5000/bookings/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -81,13 +81,14 @@ const Booking = () => {
             name: "OnePlaceEvent",
             description: "Payment for booking",
             handler: async (response) => {
+                console.log("Payment ID:", response.razorpay_payment_id);
                 let transactionId = response['razorpay_payment_id'];
                 let bookingId = selectedBooking.id;
                 let amount = selectedBooking.totalPrice;
 
                 console.log(transactionId, bookingId, amount);
 
-                const res = await axios.post("https://backend-999h.onrender.com/payment/", {
+                const res = await axios.post("http://localhost:5000/payment/", {
                     transactionId: transactionId,
                     bookingId: bookingId,
                     amount: amount,
@@ -107,12 +108,12 @@ const Booking = () => {
                     )
                 );
                 // if (res.data && res.data.payment && res.data.payment.invoiceUrl) {
-                //     window.open(`https://backend-999h.onrender.com${res.data.payment.invoiceUrl}`, "_blank");
+                //     window.open(`http://localhost:5000${res.data.payment.invoiceUrl}`, "_blank");
                 // }
 
                 //  Immediately open invoice, if available
                 if (res.data?.payment?.invoiceUrl) {
-                    window.open(`https://backend-999h.onrender.com${res.data.payment.invoiceUrl}`, "_blank");
+                    window.open(`http://localhost:5000${res.data.payment.invoiceUrl}`, "_blank");
                 }
             },
             // prefill: {

@@ -69,7 +69,7 @@ const MyOrders = () => {
                 const providerId = localStorage.getItem("userId");
                 const userType = localStorage.getItem("role");
                 const response = await fetch(
-                    `https://backend-999h.onrender.com/bookings?userId=${providerId}&userType=${userType}&status=approved,confirmed,completed,rejected`
+                    `http://localhost:5000/bookings?userId=${providerId}&userType=${userType}&status=approved,confirmed,completed,rejected`
                 );
                 if (!response.ok) throw new Error("Failed to fetch orders");
                 const data = await response.json();
@@ -88,7 +88,7 @@ const MyOrders = () => {
     const handleCompleteClick = async (order) => {
         try {
             // send OTP to event manager
-            await fetch("https://backend-999h.onrender.com/otp-api/send-otp", {
+            await fetch("http://localhost:5000/otp-api/send-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -97,7 +97,7 @@ const MyOrders = () => {
                 }),
             });
 
-            // await axios.post("https://backend-999h.onrender.com/otp-api/send-otp", {
+            // await axios.post("http://localhost:5000/otp-api/send-otp", {
             //     email: order?.event?.managerId?.email
             //   });
             // console.log(order.event.managerId.email);
@@ -115,7 +115,7 @@ const MyOrders = () => {
 
     const verifyOtpAndComplete = async () => {
         try {
-            // const response = await fetch("https://backend-999h.onrender.com/otp-api/verify-otp", {
+            // const response = await fetch("http://localhost:5000/otp-api/verify-otp", {
             //     method: "POST",
             //     headers: { "Content-Type": "application/json" },
             //     body: JSON.stringify({
@@ -124,7 +124,7 @@ const MyOrders = () => {
             //     }),
             // });
 
-            const response = await axios.post("https://backend-999h.onrender.com/otp-api/verify-otp", {
+            const response = await axios.post("http://localhost:5000/otp-api/verify-otp", {
                 email: currentOrder.event.manager.email, // make sure this is defined
                 otp: otpInput
             });
@@ -158,7 +158,7 @@ const MyOrders = () => {
 
     const handleStatusChange = async (id, newStatus) => {
         try {
-            const response = await fetch(`https://backend-999h.onrender.com/bookings/${id}`, {
+            const response = await fetch(`http://localhost:5000/bookings/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus }),

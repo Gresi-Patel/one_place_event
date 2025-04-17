@@ -11,7 +11,7 @@ const VerifyOtp = () => {
     const handleVerify = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(' https://backend-999h.onrender.com/otp-api/verify-otp', {
+            const res = await fetch(' http://localhost:5000/otp-api/verify-otp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp }),

@@ -9,6 +9,7 @@ const AddEvent = () => {
     endDate: "",
     address: "",
   });
+  const [loading, setLoading] = useState(false); 
 
   const handleChange = (e) => {
     setEventData({ ...eventData, [e.target.name]: e.target.value });
@@ -16,6 +17,7 @@ const AddEvent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Start loading
     try {
       const managerId = localStorage.getItem("userId");
       if (!managerId) {
@@ -25,7 +27,7 @@ const AddEvent = () => {
 
       const eventWithManager = { ...eventData, managerId };
 
-      const response = await axios.post("https://backend-999h.onrender.com/event/", eventWithManager);
+      const response = await axios.post("http://localhost:5000/event/", eventWithManager);
 
       const createdEvent = response.data;
       const eventId = createdEvent.id;
@@ -39,6 +41,9 @@ const AddEvent = () => {
       console.error(err);
       alert("Failed to create event");
     }
+    finally {
+      setLoading(false);
+      }
   };
 
   return (
@@ -97,8 +102,11 @@ const AddEvent = () => {
           </div>
 
           <div className="d-grid">
-            <button type="submit" className="btn btn-primary btn-lg shadow-sm">
-              🚀 Create Event
+            <button type="submit" className="btn btn-primary btn-lg shadow-sm" disabled={loading}>
+              {loading ? (
+                <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              ) : "🚀 Create Event"}
+              
             </button>
           </div>
         </form>

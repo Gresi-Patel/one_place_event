@@ -6,7 +6,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // 👈 Loading state
+  const [isLoading, setIsLoading] = useState(false); 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,7 +18,7 @@ const Login = () => {
     setIsLoading(true); // 👈 Start loading
 
     try {
-      const response = await fetch('https://backend-999h.onrender.com/auth/login', {
+      const response = await fetch('http://localhost:5000/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -44,7 +44,7 @@ const Login = () => {
     } catch (err) {
       setError('Something went wrong. Please try again later.');
     } finally {
-      setIsLoading(false); // 👈 Stop loading
+      setIsLoading(false); 
     }
   };
 

@@ -22,7 +22,7 @@ const ProfileManager = () => {
 
         const fetchProfile = async () => {
             try {
-                const response = await axios.get(`https://backend-999h.onrender.com/auth/${providerId}`);
+                const response = await axios.get(`http://localhost:5000/auth/${providerId}`);
                 setProfile(response.data);
                 console.log(response.data);
             } catch (error) {

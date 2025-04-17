@@ -20,7 +20,7 @@ const ServiceDetails = () => {
                 setLoading(true);
                 setError(null);
 
-                const response = await fetch(`https://backend-999h.onrender.com/service/${serviceId}`);
+                const response = await fetch(`http://localhost:5000/service/${serviceId}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch service details");
                 }

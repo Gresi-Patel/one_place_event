@@ -16,13 +16,16 @@ const EventDetails = () => {
                 setLoading(true);
                 setError(null);
 
-                const response = await fetch(` https://backend-999h.onrender.com/event/${eventId}`);
+                const response = await fetch(` http://localhost:5000/event/${eventId}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch event details");
                 }
 
                 const data = await response.json();
+                console.log("event detail:",data);
+                console.log("event detail book:",data.bookings);
                 setEvent(data);
+                
             } catch (err) {
                 setError(err.message);
             } finally {
@@ -62,9 +65,10 @@ const EventDetails = () => {
                     <h5>Bookings:</h5>
                     {event.bookings.length > 0 ? (
                         <ul>
+
                             {event.bookings.map((booking, index) => (
                                 <li key={index}>
-                                    <strong>Service:</strong> {booking.serviceName} | <strong>Booked By:</strong> {booking.bookedBy}
+                                    <strong>Service:</strong> {booking.service.name} | <strong>Booked By:</strong> {booking.event.manager.name}
                                 </li>
                             ))}
                         </ul>

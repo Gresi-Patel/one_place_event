@@ -8,7 +8,7 @@ const SelectServices = () => {
   const [selected, setSelected] = useState([]);
 
   useEffect(() => {
-    axios.get(' https://backend-999h.onrender.com/service/') 
+    axios.get(' http://localhost:5000/service/') 
       .then(res => setServices(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -22,7 +22,7 @@ const SelectServices = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(` https://backend-999h.onrender.com/event/${eventId}/select-services`, { services: selected })
+    axios.post(` http://localhost:5000/event/${eventId}/select-services`, { services: selected })
       .then(() => alert("Services selected successfully!"))
       .catch(err => console.log(err));
   };

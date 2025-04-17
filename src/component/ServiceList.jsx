@@ -14,7 +14,7 @@ const ServiceList = () => {
 
     if (!ignore) {
       setLoading(true);
-      fetch(` https://backend-999h.onrender.com/service?serviceProviderId=${serviceProviderId}`)
+      fetch(` http://localhost:5000/service?serviceProviderId=${serviceProviderId}`)
         .then((res) => res.json())
         .then((data) => {
           if (!ignore) {
