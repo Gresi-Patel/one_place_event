@@ -41,6 +41,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+
+        {/* service panel */}
         <Route path="/service-provider-panel" element={<ServiceProviderPanel />} >
           <Route path="service-list" element={<ServiceList />} />
           <Route path="add-service" element={<AddService />} />
@@ -48,6 +50,8 @@ function App() {
           <Route path="service-details/:serviceId" element={<ServiceDetails/>} />
           <Route path="profile-provider" element={<ProfileProvider/>} />
         </Route>
+
+        {/* event manager panel */}
         <Route path="/event-manager-panel" element={<EventManagerPanel />}>
           <Route path="event-list" element={<EventList />} />
           <Route path="create-event" element={<AddEvent />} />
@@ -55,10 +59,9 @@ function App() {
           <Route path="book-services/:eventId" element={<BookServices />} />
           <Route path="booking" element={<Booking />} />
           <Route path="profile-manager" element={<ProfileManager />} />
-
         </Route>
+
         <Route path="/select-services/:eventId" element={<SelectServices />} />
-        {/* <Route path="/plannow" element={<Plan />} /> */}
         <Route path='/login' element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/verify-otp" element={<VerifyOtp />} />

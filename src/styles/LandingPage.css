@@ -68,8 +68,10 @@
 }
 .section2heading{
   color: rgba(119, 170, 225, 1);
-  font-family: "Julius Sans One", sans-serif;
-  font-weight: 400;
+
+  /* font-family: "Julius Sans One", sans-serif; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   font-style: normal;
   text-align: center;
   font-size: 32px;
@@ -79,10 +81,14 @@
 .section2desc p {
   font-size: 18px;
   color: rgba(119, 170, 225, 1);
-  font-family: "Krub", sans-serif;
-  font-weight: 200;
+  /* color: black; */
+  /* font-family: "Krub", sans-serif; */
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
   font-style: normal;
   line-height: 1.7;
+  /* letter-spacing: 1px; */
+  /* line-height: 1.6; */
 }
 
 .section3border {

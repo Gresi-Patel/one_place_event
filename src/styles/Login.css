@@ -1,9 +1,13 @@
 /* Login.css */
 .loginpage {
-    background-color: rgba(221, 237, 255, 1);
+    /* background-color: rgba(221, 237, 255, 1); */
     display: flex;
     justify-content: center;
     padding: 10.5% 0%;
+    background-image: url("../images/loginimage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
   }
   
   .logintitle {
@@ -23,10 +27,11 @@
   .loginbox {
     background-color: white;
     border: 2px solid rgba(150, 197, 246, 1);
-    border-radius: 0px;
+    border-radius: 20px;
     width: 80%;
     max-width: 500px;
     padding: 5%;
+    height: 500px;
   }
   
   .logininputs {
@@ -45,6 +50,10 @@
     justify-content: space-between;
     padding: 20px 0px;
   }
+
+  .loginlinks>.pointer{
+    cursor: pointer;
+  }
   
   .loginbtn {
     display: flex;
@@ -58,6 +67,11 @@
     border-radius: 0px;
     padding: 10px 20px; /* Increased padding for larger button */
     font-size: 1.1rem; /* Adjusted font size for larger button */
+  }
+
+  .signP{
+    /* margin-bottom: 30px; */
+    padding-bottom: 60px;
   }
   
   @media screen and (max-width: 780px) {

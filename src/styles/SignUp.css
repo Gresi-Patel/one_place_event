@@ -4,6 +4,10 @@
   display: flex;
   justify-content: center;
   padding: 4.8% 0%;
+  background-image: url("../images/loginimage.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
 
 .signuptitle {
@@ -19,7 +23,7 @@
 .signupbox {
   background-color: white;
   border: 2px solid rgba(150, 197, 246, 1);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 80%;
   max-width: 600px;
   padding: 5%;

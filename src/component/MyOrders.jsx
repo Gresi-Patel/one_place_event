@@ -207,7 +207,7 @@ const MyOrders = () => {
         <>
             <Container sx={{ mt: 4 }}>
                 <Typography variant="h4" align="center" gutterBottom>
-                    My Bookings
+                    My Orders
                 </Typography>
 
                 {orders.length === 0 ? (

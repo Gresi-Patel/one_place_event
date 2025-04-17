@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , Link } from 'react-router-dom';
+// import { Link } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -82,19 +83,22 @@ const Login = () => {
             </div>
           </div>
           <div className="row loginlinks">
-            <a className="col-6 forgetpassward" onClick={() => navigate('/signup')}>SignUp</a>
-            <a className="col-6 forgetpassward" onClick={() => navigate('/forgot-password')}>Forget Password</a>
+            {/* <a className="col-6 forgetpassward text-decoration-none pointer" onClick={() => navigate('/signup')}>SignUp</a> */}
+            <a className="col-6 forgetpassward text-decoration-none pointer" onClick={() => navigate('/forgot-password')}>Forget Password</a>
           </div>
           <div className="row loginbtn">
             <button
               type="submit"
               className="col-md-6 btn btn-primary btn-lg"
-              disabled={isLoading} // 👈 Disable when loading
+              disabled={isLoading} // 
             >
-              {isLoading ? 'Logging in...' : 'Login'} {/* 👈 Text change */}
+              {isLoading ? 'Logging in...' : 'Login'} 
             </button>
+            
           </div>
         </form>
+        <p className="mt-3  text-center signP">Don't have an account?  <Link to="/signup" className="text-primary fw-bold text-decoration-none">Signup here</Link>
+        </p>
       </div>
     </div>
   );

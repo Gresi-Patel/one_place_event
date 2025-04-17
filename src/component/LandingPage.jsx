@@ -16,6 +16,8 @@ import photo2 from '../images/photo 2.jpeg'
 import { useNavigate } from 'react-router-dom';
 import img21 from '../images/21.jpg'
 import "../styles/AboutUs.css"
+import Footer from "./Footer";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 // import OurServices from "./OurServices";
 
 
@@ -35,6 +37,10 @@ const LandingPage = () => {
   };
   const handleAboutUsClick = () => {
     navigate("/aboutus")
+  }
+
+  const handleDecoratorsViewClick=()=>{
+    navigate("/decorators")
   }
 
   return (
@@ -69,11 +75,12 @@ const LandingPage = () => {
                       <a className="nav-link" onClick={handleDecoratorsClick}>Services</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link " aria-current="page" onClick={handleLoginClick}>Login</a>
+                      <a className="nav-link " aria-current="page" href="#contact-us">Contact Us</a>
                     </li>
                     <li className="nav-item">
-                      <a className="nav-link " aria-current="page" onClick={handleSignUpClick}>Sign Up</a>
+                      <a className="nav-link " aria-current="page" onClick={handleLoginClick}>Login</a>
                     </li>
+                    
 
                   </ul>
                 </div>
@@ -153,8 +160,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-     
-
 
       <section className="section2 py-5">
         <div className="container">
@@ -165,7 +170,7 @@ const LandingPage = () => {
                 <p className="lead">
                   Make your event beautiful with our expert decorators. We design stunning setups with flowers, lights, and themed decorations to match your style. Whether it's a wedding, party, or corporate event, we create the perfect ambiance to make your day special!
                 </p>
-                <button className="btn btn-light btn-lg section5btn" onClick={handleSignUpClick}>
+                <button className="btn btn-light btn-lg section5btn" onClick={handleDecoratorsViewClick}>
                   view more
                 </button>
               </div>
@@ -179,13 +184,12 @@ const LandingPage = () => {
         </div>
       </section>
 
-
       <section className="section2 py-5">
         <div className="container">
           <div className="row">
             <div className="col-md-6 d-flex justify-content-start">
               <div>
-                <img src={img6} className="img-fluid" alt="Event Planning Illustration" style={{ height: "350px", width: 'auto', paddingTop: '20px' }} />
+                <img src={img5} className="img-fluid" alt="Event Planning Illustration" style={{ height: "350px", width: 'auto', paddingTop: '20px' }} />
               </div>
             </div>
             <div className="col-md-6 d-flex align-items-center">
@@ -194,7 +198,7 @@ const LandingPage = () => {
                 <p className="lead">
                   Serve delicious food at your event with our expert caterers. We offer a variety of cuisines to match your taste, whether it's a wedding, party, or corporate event. From buffets to plated meals, we ensure great food and service for your special day!
                 </p>
-                <button className="btn btn-light btn-lg section5btn" onClick={handleSignUpClick}>
+                <button className="btn btn-light btn-lg section5btn" onClick={handleDecoratorsViewClick}>
                   View More
                 </button>
               </div>
@@ -202,6 +206,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
       <section className="section2 py-5">
         <div className="container">
           <div className="row">
@@ -211,7 +216,7 @@ const LandingPage = () => {
                 <p className="lead">
                   Find the perfect venue for your event, whether it's a wedding, party, or corporate gathering. We offer beautiful spaces with great ambiance, seating, and decor options to match your style. Make your event special with the right venue!
                 </p>
-                <button className="btn btn-light btn-lg section5btn" onClick={handleSignUpClick}>
+                <button className="btn btn-light btn-lg section5btn" onClick={handleDecoratorsViewClick}>
                   View more
                 </button>
               </div>
@@ -225,6 +230,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
       <section className="section2 py-5">
         <div className="container">
           <div className="row">
@@ -237,7 +243,7 @@ const LandingPage = () => {
               <div className="section2desc">
                 <h1 className="section2heading">Photography</h1>
                 <p className="lead">
-                Capture every special moment with our professional photographers! Whether it's a wedding, corporate event, or private celebration, we provide high-quality photography services to preserve your memories. From candid shots to stunning portraits, we ensure every detail is beautifully captured.
+                  Capture every special moment with our professional photographers! Whether it's a wedding, corporate event, or private celebration, we provide high-quality photography services to preserve your memories. From candid shots to stunning portraits, we ensure every detail is beautifully captured.
                 </p>
                 <button className="btn btn-light btn-lg section5btn" onClick={handleSignUpClick}>
                   View More
@@ -248,7 +254,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-   
 
       <section
         className="section5"
@@ -269,10 +274,87 @@ const LandingPage = () => {
         </div>
       </section>
 
-      
+      {/* contact us page */}
+      <section id="contact-us">
+        <Container className="my-5">
+          <Row className="align-items-center">
+            <Col md={6}>
+              <img
+                src="https://d14d0jpa0bxuep.cloudfront.net/media/wysiwyg/Contact_us.jpg"
+                alt="Support Agent"
+                className="img-fluid rounded mx-auto d-block"
+                style={{ maxWidth: "450px", height: "auto" }}
+              />
+            </Col>
+            <Col md={6}>
+              <h2 className="mb-4">Quick Contact</h2>
+              <Form>
+                <Form.Group className="mb-3">
+                  <Form.Control type="text" placeholder="name" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Control type="email" placeholder="email address" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Control type="text" placeholder="phone" />
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Control as="textarea" rows={4} placeholder="message" />
+                </Form.Group>
+                <Button variant="danger" type="submit">
+                  SUBMIT
+                </Button>
+              </Form>
+            </Col>
+          </Row>
 
+          <Row className="text-center mt-5">
+            <Col md={4}>
+              <img
+                src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png"
+                alt="Address Icon"
+                className="mb-2"
+              />
+              <h5>Address</h5>
+              <p>
+                S8 ,Navsari<br />
+                Gujarat
+              </p>
+            </Col>
+            <Col md={4}>
+              <img
+                src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png"
+                alt="Phone Icon"
+                className="mb-2"
+              />
+              <h5>Phone</h5>
+              <p>
+                251 546 9442<br />
+                630 446 8851
+              </p>
+            </Col>
+            <Col md={4}>
+              <img
+                src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png"
+                alt="Email Icon"
+                className="mb-2"
+              />
+              <h5>Email</h5>
+              <p>
+                eventSpark@gmail.com<br />
+                123@wappzo.com
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-      <footer className="section6 py-4 text-primary">
+      {/* Footer section */}
+      <section>
+        <Footer />
+      </section>
+
+      {/* <footer className="section6 py-4 text-primary">
         <div className="container d-flex justify-content-between align-items-center">
           <div>
             <h1>OnePlaceEvent</h1>
@@ -287,7 +369,7 @@ const LandingPage = () => {
             </div>
           </div>
         </div>
-      </footer>
+      </footer> */}
     </>
   );
 };

@@ -7,28 +7,32 @@ import img17 from '../images/17.jpg';
 import img18 from '../images/18.jpg';
 import img19 from '../images/19.jpg';
 import img20 from '../images/20.jpg';
+import img5 from '../images/5.png';
+// import img5 from '../images/5.jpg';
 
 // Sample data for caterers and venues (replace with your actual data)
 const catererData = [
-  { name: 'Delicious Caterers', contact: '9876543210', cuisine: 'Indian', image: img20 },
-  { name: 'Gourmet Meals', contact: '5551234567', cuisine: 'Continental', image: img16 },
+  {  image: img20 },
+  {  image: img16 },
+  {image:img5}
+  // {  image: img5 },
   // Add more caterer data
 ];
 
 const venueData = [
-  { name: 'Grand Ballroom', capacity: '500', location: 'City Center', image: img18 },
-  { name: 'Outdoor Gardens', capacity: '200', location: 'Suburb', image: img17 },
+  {  image: img18 },
+  {  image: img17 },
   // Add more venue data
 ];
 
 const decoratorData = [
-  { name: 'RK Decorators 1', contact: '1234567890', experience: '5 years', image: img14 },
-  { name: 'RK Decorators 2', contact: '1234567890', experience: '5 years', image: img15 },
-  { name: 'RK Decorators 3', contact: '1234567890', experience: '5 years', image: img16 },
-  { name: 'RK Decorators 4', contact: '1234567890', experience: '5 years', image: img17 },
-  { name: 'RK Decorators 5', contact: '1234567890', experience: '5 years', image: img18 },
-  { name: 'RK Decorators 6', contact: '1234567890', experience: '5 years', image: img19 },
-  { name: 'RK Decorators 7', contact: '1234567890', experience: '5 years', image: img20 },
+  { image: img14 },
+  { image: img15 },
+  { image: img16 },
+  { image: img17 },
+  { image: img18 },
+  { image: img19 },
+  { image: img20 },
 ];
 
 const Decorators = () => {
@@ -121,11 +125,7 @@ const Decorators = () => {
             <div className="col" key={index}>
               <div className="card" style={{ width: '18rem' }}>
                 <img src={decorator.image} className="card-img-top rounded-0" style={{ height: '15rem', objectFit: 'cover' }} alt={decorator.name} />
-                <div className="card-body">
-                  <h5 className="card-title text-center">{decorator.name}</h5>
-                  <p className="card-text">ContactNo:<span style={{ color: 'gray' }}>{decorator.contact}</span></p>
-                  <p className="card-text">Work Experience:<span style={{ color: 'gray' }}>{decorator.experience}</span></p>
-                </div>
+                
               </div>
             </div>
           ))}
@@ -135,11 +135,6 @@ const Decorators = () => {
             <div className="col" key={index}>
               <div className="card" style={{ width: '18rem' }}>
                 <img src={caterer.image} className="card-img-top rounded-0" style={{ height: '15rem', objectFit: 'cover' }} alt={caterer.name} />
-                <div className="card-body">
-                  <h5 className="card-title text-center">{caterer.name}</h5>
-                  <p className="card-text">ContactNo:<span style={{ color: 'gray' }}>{caterer.contact}</span></p>
-                  <p className="card-text">Cuisine:<span style={{ color: 'gray' }}>{caterer.cuisine}</span></p>
-                </div>
               </div>
             </div>
           ))}
@@ -149,14 +144,11 @@ const Decorators = () => {
             <div className="col" key={index}>
               <div className="card" style={{ width: '18rem' }}>
                 <img src={venue.image} className="card-img-top rounded-0" style={{ height: '15rem', objectFit: 'cover' }} alt={venue.name} />
-                <div className="card-body">
-                  <h5 className="card-title text-center">{venue.name}</h5>
-                  <p className="card-text">Capacity:<span style={{ color: 'gray' }}>{venue.capacity}</span></p>
-                  <p className="card-text">Location:<span style={{ color: 'gray' }}>{venue.location}</span></p>
-                </div>
               </div>
             </div>
           ))}
+
+          
 
         {activeCategory === 'decorators' && filteredDecorators.length === 0 && searchTerm && (
           <div className="col-12 text-center">No decorators found matching your search.</div>

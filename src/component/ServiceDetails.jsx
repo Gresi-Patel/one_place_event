@@ -79,7 +79,7 @@ const ServiceDetails = () => {
                         <strong>Description:</strong> {service.description || "No description available."}
                     </p>
                     <p>
-                        <strong>Price:</strong> ${service.price}
+                        <strong>Price:</strong> ₹{service.price}
                     </p>
                 </div>
                 <div className="card-footer text-center">
