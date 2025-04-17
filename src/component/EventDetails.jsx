@@ -16,7 +16,7 @@ const EventDetails = () => {
                 setLoading(true);
                 setError(null);
 
-                const response = await fetch(` http://localhost:5000/event/${eventId}`);
+                const response = await fetch(` https://backend-999h.onrender.com/event/${eventId}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch event details");
                 }

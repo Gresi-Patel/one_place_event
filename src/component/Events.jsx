@@ -5,7 +5,7 @@ const Events = () => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-        fetch(" http://localhost:5000/event/") 
+        fetch(" https://backend-999h.onrender.com/event/") 
             .then(response => response.json())
             .then(data => setEvents(data))
             .catch(error => console.error("Error fetching events:", error));

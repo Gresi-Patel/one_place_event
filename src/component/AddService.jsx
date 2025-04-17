@@ -9,7 +9,7 @@ const AddService = () => {
   const [loading, setLoading] = useState(false); // NEW state for loading
 
   useEffect(() => {
-    fetch("http://localhost:5000/service/")
+    fetch("https://backend-999h.onrender.com/service/")
       .then((res) => res.json())
       .then((data) => {
         setCategories(data);
@@ -31,7 +31,7 @@ const AddService = () => {
 
     try {
       // Step 1: Create category
-      const categoryRes = await fetch("http://localhost:5000/service-category/", {
+      const categoryRes = await fetch("https://backend-999h.onrender.com/service-category/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: selectedCategory }),
@@ -41,7 +41,7 @@ const AddService = () => {
       const categoryId = categoryData.id;
 
       // Step 2: Create the service
-      const response = await fetch("http://localhost:5000/service/", {
+      const response = await fetch("https://backend-999h.onrender.com/service/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

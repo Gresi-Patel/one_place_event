@@ -10,7 +10,7 @@ const ResetPassword = () => {
     const handleReset = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(' http://localhost:5000/otp-api/reset-password', {
+            const res = await fetch(' https://backend-999h.onrender.com/otp-api/reset-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, newPassword }),

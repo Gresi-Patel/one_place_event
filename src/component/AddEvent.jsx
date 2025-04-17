@@ -27,7 +27,7 @@ const AddEvent = () => {
 
       const eventWithManager = { ...eventData, managerId };
 
-      const response = await axios.post("http://localhost:5000/event/", eventWithManager);
+      const response = await axios.post("https://backend-999h.onrender.com/event/", eventWithManager);
 
       const createdEvent = response.data;
       const eventId = createdEvent.id;

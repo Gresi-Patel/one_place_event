@@ -18,7 +18,7 @@ const BookServices = () => {
     useEffect(() => {
         // Fetch services from the API
         axios
-            .get(" http://localhost:5000/service/")
+            .get(" https://backend-999h.onrender.com/service/")
             .then((response) => {
                 setServices(response.data);
                 setFilteredServices(response.data);
@@ -76,7 +76,7 @@ const BookServices = () => {
             };
             console.log(bookingData);
 
-            axios.post(" http://localhost:5000/bookings/", bookingData)
+            axios.post(" https://backend-999h.onrender.com/bookings/", bookingData)
                 .then((response) => {
                     alert("Service booked successfully!");
                 })

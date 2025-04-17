@@ -22,13 +22,6 @@ import {
     DialogActions,
     TextField,
 } from "@mui/material";
-// import {
-//     Dialog,
-//     DialogTitle,
-//     DialogContent,
-//     DialogActions,
-//     TextField,
-// } from "@mui/material";
 
 import { styled } from "@mui/material/styles";
 
@@ -61,6 +54,9 @@ const MyOrders = () => {
     const [openOtpModal, setOpenOtpModal] = useState(false);
     const [currentOrder, setCurrentOrder] = useState(null);
     const [otpInput, setOtpInput] = useState("");
+    // const [otp, setOtp] = useState('');
+    //   const [isLoading, setIsLoading] = useState(false);
+    const [loadingOrderId, setLoadingOrderId] = useState(null);
 
 
     useEffect(() => {
@@ -69,7 +65,7 @@ const MyOrders = () => {
                 const providerId = localStorage.getItem("userId");
                 const userType = localStorage.getItem("role");
                 const response = await fetch(
-                    `http://localhost:5000/bookings?userId=${providerId}&userType=${userType}&status=approved,confirmed,completed,rejected`
+                    `https://backend-999h.onrender.com/bookings?userId=${providerId}&userType=${userType}&status=approved,confirmed,completed,rejected`
                 );
                 if (!response.ok) throw new Error("Failed to fetch orders");
                 const data = await response.json();
@@ -86,36 +82,39 @@ const MyOrders = () => {
 
 
     const handleCompleteClick = async (order) => {
+        setLoadingOrderId(order.id);
+        // setIsLoading(true);
+        setOtpInput("");
         try {
             // send OTP to event manager
-            await fetch("http://localhost:5000/otp-api/send-otp", {
+            await fetch("https://backend-999h.onrender.com/otp-api/send-otp", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     email: order?.event?.manager?.email
-
                 }),
             });
 
-            // await axios.post("http://localhost:5000/otp-api/send-otp", {
+            // await axios.post("https://backend-999h.onrender.com/otp-api/send-otp", {
             //     email: order?.event?.managerId?.email
             //   });
             // console.log(order.event.managerId.email);
-            console.log("order:", order);
-            console.log("event:", order?.event);
-            console.log("managerId:", order?.event?.manager);
-            console.log("email:", order?.event?.manager?.email);
+
 
             setCurrentOrder(order);
             setOpenOtpModal(true);
         } catch (error) {
             alert("Failed to send OTP: " + error.message);
         }
+        finally {
+            setLoadingOrderId(null);
+        }
+
     };
 
     const verifyOtpAndComplete = async () => {
         try {
-            // const response = await fetch("http://localhost:5000/otp-api/verify-otp", {
+            // const response = await fetch("https://backend-999h.onrender.com/otp-api/verify-otp", {
             //     method: "POST",
             //     headers: { "Content-Type": "application/json" },
             //     body: JSON.stringify({
@@ -124,8 +123,8 @@ const MyOrders = () => {
             //     }),
             // });
 
-            const response = await axios.post("http://localhost:5000/otp-api/verify-otp", {
-                email: currentOrder.event.manager.email, // make sure this is defined
+            const response = await axios.post("https://backend-999h.onrender.com/otp-api/verify-otp", {
+                email: currentOrder.event.manager.email,
                 otp: otpInput
             });
             console.log("response:", response);
@@ -136,7 +135,7 @@ const MyOrders = () => {
             if (!result.success) {
                 return;
             }
-            
+
             alert(result.message || "OTP verification failed");
             // Now update booking status
             await handleStatusChange(currentOrder.id, "completed");
@@ -158,7 +157,7 @@ const MyOrders = () => {
 
     const handleStatusChange = async (id, newStatus) => {
         try {
-            const response = await fetch(`http://localhost:5000/bookings/${id}`, {
+            const response = await fetch(`https://backend-999h.onrender.com/bookings/${id}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ status: newStatus }),
@@ -283,8 +282,14 @@ const MyOrders = () => {
                                                     color="primary"
                                                     size="small"
                                                     onClick={() => handleCompleteClick(order)}
+                                                    disabled={loadingOrderId === order.id}
                                                 >
-                                                    Complete
+                                                    {loadingOrderId === order.id ? (
+                                                        <CircularProgress size={24} color="inherit" />
+                                                    ) : (
+                                                        "Complete"
+                                                    )}
+
                                                 </Button>
                                             )}
 
@@ -306,6 +311,7 @@ const MyOrders = () => {
                         value={otpInput}
                         onChange={(e) => setOtpInput(e.target.value)}
                         autoFocus
+                    // disabled={isLoading}
                     />
                 </DialogContent>
                 <DialogActions>

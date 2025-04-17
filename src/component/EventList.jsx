@@ -15,7 +15,7 @@ const EventList = () => {
 
     if (!ignore) {
       setLoading(true);
-      fetch(`http://localhost:5000/event?eventManagerId=${eventManagerId}`)
+      fetch(`https://backend-999h.onrender.com/event?eventManagerId=${eventManagerId}`)
         .then((res) => res.json())
         .then((data) => {
           if (!ignore) setEvents(data);

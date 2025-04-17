@@ -18,9 +18,9 @@ const Booking = () => {
                 const managerId = localStorage.getItem("userId");
 
                 const userType = localStorage.getItem("role");
-                const response = await fetch(`http://localhost:5000/bookings?userId=${managerId}&userType=${userType}&status=completed,rejected,accepted,confirmed`);
+                const response = await fetch(`https://backend-999h.onrender.com/bookings?userId=${managerId}&userType=${userType}&status=completed,rejected,accepted,confirmed`);
 
-                // const response = await fetch(" http://localhost:5000/bookings/");
+                // const response = await fetch(" https://backend-999h.onrender.com/bookings/");
                 if (!response.ok) throw new Error("Failed to fetch orders");
 
                 const data = await response.json();
@@ -38,7 +38,7 @@ const Booking = () => {
 
     const handleStatusChange = async (id, newStatus) => {
         try {
-            const response = await fetch(`http://localhost:5000/bookings/${id}`, {
+            const response = await fetch(`https://backend-999h.onrender.com/bookings/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -88,7 +88,7 @@ const Booking = () => {
 
                 console.log(transactionId, bookingId, amount);
 
-                const res = await axios.post("http://localhost:5000/payment/", {
+                const res = await axios.post("https://backend-999h.onrender.com/payment/", {
                     transactionId: transactionId,
                     bookingId: bookingId,
                     amount: amount,
@@ -108,12 +108,12 @@ const Booking = () => {
                     )
                 );
                 // if (res.data && res.data.payment && res.data.payment.invoiceUrl) {
-                //     window.open(`http://localhost:5000${res.data.payment.invoiceUrl}`, "_blank");
+                //     window.open(`https://backend-999h.onrender.com${res.data.payment.invoiceUrl}`, "_blank");
                 // }
 
                 //  Immediately open invoice, if available
                 if (res.data?.payment?.invoiceUrl) {
-                    window.open(`http://localhost:5000${res.data.payment.invoiceUrl}`, "_blank");
+                    window.open(`https://backend-999h.onrender.com${res.data.payment.invoiceUrl}`, "_blank");
                 }
             },
             // prefill: {
@@ -185,9 +185,9 @@ const Booking = () => {
                                         <span
                                             className={`badge ${order.status === "confirmed"
                                                 ? "bg-success"
-                                                : order.status === "cancelled"
-                                                    ? "bg-danger"
-                                                    : "bg-primary"
+                                                : order.status === "completed"
+                                                ? "bg-primary"
+                                                : "bg-danger"
                                                 }`}
                                         >
                                             {order.status}
@@ -197,7 +197,7 @@ const Booking = () => {
                                     <td>{format(new Date(order.endTime), "dd/MM/yyyy hh:mm aa")}</td>
                                     <td>₹{order.totalPrice}</td>
                                     <td>
-                                        {order.status !== "rejected" && (
+                                        {order.status === "accepted" && (
                                             <div className="d-flex gap-2">
                                                 <button
                                                     className="btn btn-outline-success btn-sm"
